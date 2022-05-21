@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Delfect : MonoBehaviour
+public class Deflect : MonoBehaviour
 {
     [SerializeField] [Range(1, 5)] float energyMult = 2.5f;
 
