@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] DamageDataStruct damageData;
+    [SerializeField] DamageDataSO damageData;
 
     [SerializeField] AudioClip audioClip;
-    [SerializeField] DealDamage dealDamage;
+    [SerializeField] [Tooltip("Assign this attack's Collider")] DealDamage dealDamage;
 
     void Awake()
     {
@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 
     public void AEvent_StartAttack()
     {
-        dealDamage.Enable(damageData);
+        dealDamage.Enable(damageData.GetDamageStruct);
     }
 
     public void AEvent_EndAttack()

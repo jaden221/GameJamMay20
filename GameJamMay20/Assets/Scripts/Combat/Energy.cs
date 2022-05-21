@@ -11,8 +11,27 @@ public class Energy : MonoBehaviour
         get { return curEnergy; }
     }
 
+    [SerializeField] float degenAmount = 1f;
+    [SerializeField] float degenInterval = 1;
+    float curDegenInterval;
+
     public void HandleDamagedReceieved(DamageDataReceived damageData)
     {
         curEnergy += damageData.dmgdata.energyDamage;
+        curEnergy = Mathf.Clamp(curEnergy, 0, maxEnergy);
+    }
+
+    void Update()
+    {
+        if (curDegenInterval < degenInterval)
+        {
+            curDegenInterval += Time.deltaTime;
+        }
+        else
+        {
+            curEnergy -= degenAmount;
+            curEnergy = Mathf.Clamp(curEnergy, 0, maxEnergy);
+            curDegenInterval = 0;
+        }
     }
 }
