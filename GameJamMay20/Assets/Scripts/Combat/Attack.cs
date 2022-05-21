@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] float damage;
+    [SerializeField] DamageDataStruct damageData;
 
     [SerializeField] AudioClip audioClip;
     [SerializeField] DealDamage dealDamage;
@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
-        dealDamage.Setup(damage);
+        dealDamage.Setup(damageData);
     }
 
     //if chain of different basic attacks then call those based on chain...

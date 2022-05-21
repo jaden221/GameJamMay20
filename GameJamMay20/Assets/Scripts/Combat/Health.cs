@@ -6,41 +6,54 @@ using System;
 [RequireComponent(typeof(DamageReceiver))]
 public class Health : MonoBehaviour
 {
+
     [SerializeField] float maxHealth;
     [SerializeField] float curHealth;
 
-    DamageReceiver receiveDamage;
+    public event Action OnDeath;
+
+    DamageReceiver damageReceiver;
+
+    #region Getters
+
+    public float GetHealthPercent
+    {
+        get { return curHealth / maxHealth; }
+    }
 
     public float GetCurHealth
     {
         get { return curHealth; }
     }
 
-    public event Action OnDeath;
+    #endregion
 
     void Awake()
     {
-        receiveDamage = GetComponent<DamageReceiver>();
+        if (maxHealth <= 0) Debug.Log($"maxHealth is set to 0 on {transform.name}");
+
+        curHealth = maxHealth;
     }
 
-    void OnEnable()
+    public void HandleDamagedReceived(DamageDataReceived damageType) //Switch param to be of type DamageType
     {
-        receiveDamage.OnReceiveDamage += HandleTakeDamage;
-    }
-
-    void OnDisable()
-    {
-        receiveDamage.OnReceiveDamage -= HandleTakeDamage;
-    }
-
-    void HandleTakeDamage(float damage)
-    {
-        curHealth -= damage;
+        curHealth -= damageType.dmgStruct.TotalDamage();
         curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
 
-        if (curHealth <= 0)
-        {
-            OnDeath?.Invoke();
-        }
+        if (curHealth == 0) OnDeath?.Invoke();
+    }
+
+    public void AddHealth(float value)
+    {
+        curHealth += value;
+        curHealth = Mathf.Clamp(curHealth, 0f, maxHealth);
+    }
+
+    /// <summary>
+    /// Use intended for Animation Event after Object Death
+    /// </summary>
+    public void AnEvent_Destroy()
+    {
+        Destroy(gameObject);
     }
 }
