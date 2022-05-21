@@ -22,15 +22,15 @@ public class DealDamage : MonoBehaviour
         damageReceiver.ReceiveDamage(damageData);
     }
 
-    public void Setup(DamageDataStruct newDamageData)
+    public void Setup()
     {
-        damageData = newDamageData;
         myCol = GetComponent<Collider2D>();
         myCol.enabled = false;
     }
 
-    public void Enable()
+    public void Enable(DamageDataStruct newDamageData)
     {
+        damageData = newDamageData;
         hitEnemies.Clear();
         myCol.enabled = true;
     }

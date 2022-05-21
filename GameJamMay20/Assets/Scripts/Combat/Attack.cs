@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
-        dealDamage.Setup(damageData);
+        dealDamage.Setup();
     }
 
     //if chain of different basic attacks then call those based on chain...
@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 
     public void AEvent_StartAttack()
     {
-        dealDamage.Enable();
+        dealDamage.Enable(damageData);
     }
 
     public void AEvent_EndAttack()
