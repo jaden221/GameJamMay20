@@ -11,7 +11,6 @@ public class DealDamage : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("colliding");
         if (hitEnemies.Contains(other.transform.root)) return;
         if (transform.root == other.transform.root) return;
 
