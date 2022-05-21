@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Delfect : MonoBehaviour
 {
+    [SerializeField] [Range(1, 5)] float energyMult = 2.5f;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    bool deflecting;
 
     public void HandleDamageReceived(DamageDataReceived damageData)
     {
-        // only affect stats if deflecting
+        if (deflecting)
+        {
+            damageData.dmgdata.energyDamage *= energyMult;
+            damageData.dmgdata.physDamage *= 0;
+        }
+    }
+
+    public void AEvent_StartDelfecting()
+    {
+        deflecting = true;
+    }
+
+    public void AEvent_EndDelfecting()
+    {
+        deflecting = false;
     }
 }

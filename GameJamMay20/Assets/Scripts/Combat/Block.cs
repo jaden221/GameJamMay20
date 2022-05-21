@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
+    [SerializeField] [Range(1, 3)] float energyMult = 1.3f;
+    [SerializeField] [Range(0, 1)] float damageResistance = .3f;
 
-    void Update()
-    {
-        
-    }
+    bool blocking = false;
 
     public void HandleDamageReceived(DamageDataReceived damageData)
     {
-        // only affect stats if blocking
+        if (blocking)
+        {
+            damageData.dmgdata.energyDamage *= energyMult;
+            damageData.dmgdata.physDamage *= (1 - damageResistance);
+        }
+    }
+
+    public void AEvent_StartBlock()
+    {
+        blocking = true;
+    }
+
+    public void AEvent_EndBlock()
+    {
+        blocking = false;
     }
 }
