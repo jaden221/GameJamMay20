@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(DamageReceiver))]
 public class Health : MonoBehaviour
 {
     [SerializeField] float maxHealth;
     [SerializeField] float curHealth;
 
-    ReceiveDamage receiveDamage;
+    DamageReceiver receiveDamage;
 
     public float GetCurHealth
     {
@@ -19,17 +20,17 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
-        receiveDamage = GetComponent<ReceiveDamage>();
+        receiveDamage = GetComponent<DamageReceiver>();
     }
 
     void OnEnable()
     {
-        receiveDamage.OnTakeDamage += HandleTakeDamage;
+        receiveDamage.OnReceiveDamage += HandleTakeDamage;
     }
 
     void OnDisable()
     {
-        receiveDamage.OnTakeDamage -= HandleTakeDamage;
+        receiveDamage.OnReceiveDamage -= HandleTakeDamage;
     }
 
     void HandleTakeDamage(float damage)
