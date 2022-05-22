@@ -11,8 +11,8 @@ public class Armor : MonoBehaviour
 
     public void HandleDamageReceived(DamageDataReceived damageType)
     {
-        damageType.dmgStruct.physDamage = damageType.dmgStruct.physDamage * (1 - physDmgRes);
-        damageType.dmgStruct.fireDamage = damageType.dmgStruct.fireDamage * (1 - fireDmgRes);
-        damageType.dmgStruct.magicDamage = damageType.dmgStruct.magicDamage * (1 - magicDmgRes);
+        damageType.dmgdata.physDamage = damageType.dmgdata.physDamage * (1 - physDmgRes);
+        damageType.dmgdata.fireDamage = damageType.dmgdata.fireDamage * (1 - fireDmgRes);
+        damageType.dmgdata.magicDamage = damageType.dmgdata.magicDamage * (1 - magicDmgRes);
     }
 }
