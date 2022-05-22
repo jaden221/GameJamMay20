@@ -39,7 +39,7 @@ public class Dodge : MonoBehaviour
         rigidbody.velocity = direction * actionVelocity;
     }
 
-    public void AEvent_StartRecovery()
+    public void AEvent_DodgeRecovery()
     {
         dodging = false;
         rigidbody.velocity = direction * recoveryVelocity;

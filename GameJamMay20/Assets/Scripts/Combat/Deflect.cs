@@ -26,4 +26,9 @@ public class Deflect : MonoBehaviour
     {
         deflecting = false;
     }
+
+    public void HandleStaggered()
+    {
+        deflecting = false;
+    }
 }

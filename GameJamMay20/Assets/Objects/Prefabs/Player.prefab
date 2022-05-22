@@ -174,7 +174,9 @@ GameObject:
   - component: {fileID: 9141574936557285719}
   - component: {fileID: 9141574936557285718}
   - component: {fileID: 9141574936557285712}
+  - component: {fileID: 9141574936557285737}
   - component: {fileID: 9141574936557285715}
+  - component: {fileID: 5053050421107433277}
   - component: {fileID: 9141574936557285716}
   - component: {fileID: 9141574936557285714}
   - component: {fileID: 9141574936557285725}
@@ -182,8 +184,8 @@ GameObject:
   - component: {fileID: 9141574936557285739}
   - component: {fileID: 9141574936557285738}
   - component: {fileID: 9141574936557285736}
-  - component: {fileID: 9141574936557285737}
   - component: {fileID: 9141574936557285742}
+  - component: {fileID: 690247800854424696}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -205,7 +207,7 @@ Transform:
   m_Children:
   - {fileID: 9141574935424446265}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9141574936557285719
 Animator:
@@ -300,6 +302,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9141574936557285737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141574936557285724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773fb62452c18d4684a2a0bc7fc0bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9141574936557285715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +330,30 @@ MonoBehaviour:
   OnDamageReceived:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 690247800854424696}
+        m_TargetAssemblyTypeName: StaggerArmor, Assembly-CSharp
+        m_MethodName: HandleReceiveDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5053050421107433277}
+        m_TargetAssemblyTypeName: Stagger, Assembly-CSharp
+        m_MethodName: HandleDamageReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 9141574936557285742}
         m_TargetAssemblyTypeName: Dodge, Assembly-CSharp
         m_MethodName: HandleDamageReceived
@@ -380,6 +418,45 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Energy, Assembly-CSharp
         m_MethodName: HandleDamagedReceieved
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5053050421107433277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141574936557285724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34be600542bcdf645be54e97076f780b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStagger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9141574936557285739}
+        m_TargetAssemblyTypeName: Block, Assembly-CSharp
+        m_MethodName: HandleStaggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9141574936557285738}
+        m_TargetAssemblyTypeName: Deflect, Assembly-CSharp
+        m_MethodName: HandleStaggered
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -488,18 +565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
---- !u!114 &9141574936557285737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141574936557285724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6773fb62452c18d4684a2a0bc7fc0bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9141574936557285742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,3 +579,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionVelocity: 5
   recoveryVelocity: 1
+--- !u!114 &690247800854424696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141574936557285724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a6ad3b1e3ffd04cb6ed6d97e8eec22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantStaggerStart: 0
