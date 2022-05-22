@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 776210720}
   - component: {fileID: 776210722}
   - component: {fileID: 776210723}
+  - component: {fileID: 776210724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -552,6 +553,18 @@ MonoBehaviour:
   OnDamageReceived:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 776210724}
+        m_TargetAssemblyTypeName: Dodge, Assembly-CSharp
+        m_MethodName: HandleDamageReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 776210718}
         m_TargetAssemblyTypeName: Armor, Assembly-CSharp
         m_MethodName: HandleDamageReceived
@@ -804,6 +817,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6773fb62452c18d4684a2a0bc7fc0bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &776210724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776210710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e1d0deb396093479e1c00d145acc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionVelocity: 5
+  recoveryVelocity: 1
 --- !u!1 &989700896
 GameObject:
   m_ObjectHideFlags: 3
