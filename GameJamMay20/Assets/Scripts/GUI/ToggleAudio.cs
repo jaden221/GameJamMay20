@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written By Fyfey96
 public class ToggleAudio : MonoBehaviour
 {  
     bool _musicIsOn = true;

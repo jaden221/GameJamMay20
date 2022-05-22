@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Written By Fyfey96
 public class ToggleSprite : MonoBehaviour
 {
     [SerializeField] Sprite _spriteA;
