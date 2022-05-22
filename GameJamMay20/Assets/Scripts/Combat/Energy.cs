@@ -10,6 +10,10 @@ public class Energy : MonoBehaviour
     {
         get { return curEnergy; }
     }
+    public float GetEnergyPercent
+    {
+        get { return curEnergy / maxEnergy; }
+    }
 
     [SerializeField] float degenAmount = 1f;
     [SerializeField] float degenInterval = 1;
