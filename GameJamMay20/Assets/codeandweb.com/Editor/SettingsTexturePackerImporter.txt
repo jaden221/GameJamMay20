@@ -2,15 +2,18 @@ version: 2
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Objects/Player/BasicAtk/Primary.tpsheet
+- Assets/Objects/Player/Dodge/Dodge.tpsheet
 - Assets/Objects/Player/Idle/Idle.tpsheet
 - Assets/Objects/Player/MoveFor/MoveFor.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Objects/Player/BasicAtk/Primary.png
+- Assets/Objects/Player/Dodge/Dodge.png
 - Assets/Objects/Player/Idle/Idle.png
 - Assets/Objects/Player/MoveFor/MoveFor.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

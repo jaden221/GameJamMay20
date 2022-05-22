@@ -37,6 +37,8 @@ public struct DamageDataStruct
         get { return energyDamageTrue; }
     }
 
+    public bool stagger;
+
     public float TotalDamage()
     {
         return physDamage + fireDamage + magicDamage;

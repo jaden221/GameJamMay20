@@ -27,4 +27,9 @@ public class Block : MonoBehaviour
     {
         blocking = false;
     }
+
+    public void HandleStaggered()
+    {
+        blocking = false;
+    }
 }
