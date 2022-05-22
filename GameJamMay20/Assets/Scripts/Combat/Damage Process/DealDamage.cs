@@ -11,6 +11,7 @@ public class DealDamage : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log("colliding");
         if (hitEnemies.Contains(other.transform.root)) return;
         if (transform.root == other.transform.root) return;
 
@@ -21,15 +22,15 @@ public class DealDamage : MonoBehaviour
         damageReceiver.ReceiveDamage(damageData);
     }
 
-    public void Setup()
+    public void Setup(DamageDataStruct newDamageData)
     {
+        damageData = newDamageData;
         myCol = GetComponent<Collider2D>();
         myCol.enabled = false;
     }
 
-    public void Enable(DamageDataStruct newDamageData)
+    public void Enable()
     {
-        damageData = newDamageData;
         hitEnemies.Clear();
         myCol.enabled = true;
     }

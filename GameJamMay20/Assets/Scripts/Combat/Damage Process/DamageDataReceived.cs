@@ -6,5 +6,5 @@ using UnityEngine;
 public class DamageDataReceived : ScriptableObject
 {
     //Designer inputs data, the dealer copies the struct and passes it
-    [HideInInspector] public DamageDataStruct dmgdata;
+    [HideInInspector] public DamageDataStruct dmgStruct;
 }

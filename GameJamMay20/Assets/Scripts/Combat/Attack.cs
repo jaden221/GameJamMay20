@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] DamageDataSO damageData;
+    [SerializeField] DamageDataStruct damageData;
 
     [SerializeField] AudioClip audioClip;
-    [SerializeField] [Tooltip("Assign this attack's Collider")] DealDamage dealDamage;
+    [SerializeField] DealDamage dealDamage;
 
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
-        dealDamage.Setup();
+        dealDamage.Setup(damageData);
     }
 
     //if chain of different basic attacks then call those based on chain...
@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 
     public void AEvent_StartAttack()
     {
-        dealDamage.Enable(damageData.GetDamageStruct);
+        dealDamage.Enable();
     }
 
     public void AEvent_EndAttack()

@@ -18,7 +18,7 @@ public class DamageReceiver : MonoBehaviour
     public void ReceiveDamage(DamageDataStruct damageStruct)
     {
         //Reset the damageType here then set to the passed one
-        dmgData.dmgdata = damageStruct;
+        dmgData.dmgStruct = damageStruct;
         OnDamageReceived?.Invoke(dmgData);
     }
     //Keep copy of damageType Passed in and then let the scripts use that maybe?

@@ -30,13 +30,6 @@ public struct DamageDataStruct
         get { return magicDamageTrue; }
     }
 
-    public float energyDamage;
-    float energyDamageTrue;
-    public float EnergyDamageTrue
-    {
-        get { return energyDamageTrue; }
-    }
-
     public float TotalDamage()
     {
         return physDamage + fireDamage + magicDamage;

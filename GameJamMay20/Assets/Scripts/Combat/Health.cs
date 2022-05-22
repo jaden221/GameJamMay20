@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(DamageReceiver))]
 public class Health : MonoBehaviour
 {
 
@@ -10,6 +11,8 @@ public class Health : MonoBehaviour
     [SerializeField] float curHealth;
 
     public event Action OnDeath;
+
+    DamageReceiver damageReceiver;
 
     #region Getters
 
@@ -32,9 +35,9 @@ public class Health : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    public void HandleDamagedReceived(DamageDataReceived damagedata) //Switch param to be of type DamageType
+    public void HandleDamagedReceived(DamageDataReceived damageType) //Switch param to be of type DamageType
     {
-        curHealth -= damagedata.dmgdata.TotalDamage();
+        curHealth -= damageType.dmgStruct.TotalDamage();
         curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
 
         if (curHealth == 0) OnDeath?.Invoke();
