@@ -68,12 +68,15 @@ GameObject:
   m_Component:
   - component: {fileID: 3965223046393693292}
   - component: {fileID: 3965223046393693293}
+  - component: {fileID: 6542421468425734990}
   - component: {fileID: 3965223046393693283}
   - component: {fileID: 3965223046393693280}
   - component: {fileID: 3965223046393693281}
   - component: {fileID: 3965223046393693294}
   - component: {fileID: 3965223046393693290}
+  - component: {fileID: 1166304743911428674}
   - component: {fileID: 3965223046393693291}
+  - component: {fileID: 6692540413551245377}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -95,7 +98,7 @@ Transform:
   m_Children:
   - {fileID: 3965223046821360158}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3965223046393693293
 SpriteRenderer:
@@ -149,6 +152,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6542421468425734990
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965223046393693289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 453e5685b65f28948a1d55aaf3b3ccd1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3965223046393693283
 Rigidbody2D:
   serializedVersion: 4
@@ -282,6 +305,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1166304743911428674}
+        m_TargetAssemblyTypeName: Stagger, Assembly-CSharp
+        m_MethodName: HandleDamageReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1166304743911428674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965223046393693289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34be600542bcdf645be54e97076f780b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStagger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6692540413551245377}
+        m_TargetAssemblyTypeName: GetStaggered, Assembly-CSharp
+        m_MethodName: HandleStaggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3965223046393693291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +358,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   curHealth: 0
+--- !u!114 &6692540413551245377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965223046393693289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0835b2bdac3ce749aea9ce9f7ec78dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animBool: Staggered
 --- !u!1 &3965223046821360159
 GameObject:
   m_ObjectHideFlags: 0

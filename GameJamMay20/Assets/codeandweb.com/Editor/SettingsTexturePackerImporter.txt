@@ -7,6 +7,7 @@ tpsheetFileNames:
 - Assets/Objects/Player/Dodge/Dodge.tpsheet
 - Assets/Objects/Player/Idle/Idle.tpsheet
 - Assets/Objects/Player/MoveFor/MoveFor.tpsheet
+- Assets/Objects/Player/Roar/Roar.tpsheet
 - Assets/Objects/Player/Staggered/Staggered.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
@@ -16,9 +17,11 @@ textureFileNames:
 - Assets/Objects/Player/Dodge/Dodge.png
 - Assets/Objects/Player/Idle/Idle.png
 - Assets/Objects/Player/MoveFor/MoveFor.png
+- Assets/Objects/Player/Roar/Roar.png
 - Assets/Objects/Player/Staggered/Staggered.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

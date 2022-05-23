@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FlipSprite : StateMachineBehaviour
+public class PlayerFlipSprite : StateMachineBehaviour
 {
     PlayerInputMap input;
     InputAction move;

@@ -38,4 +38,10 @@ public class Energy : MonoBehaviour
             curDegenInterval = 0;
         }
     }
+
+    public void AddEnergy(float val)
+    {
+        curEnergy += val;
+        curEnergy = Mathf.Clamp(curEnergy, 0, maxEnergy);
+    }
 }

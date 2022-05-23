@@ -30,6 +30,8 @@ public class Dodge : MonoBehaviour
             data.dmgdata.physDamage = 0;
             data.dmgdata.fireDamage = 0;
             data.dmgdata.magicDamage = 0;
+
+            data.dmgdata.stagger = false;
         }
     }
 
