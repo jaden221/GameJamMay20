@@ -131,17 +131,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9141574936557285712, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141574936557285712, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141574936557285712, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
+    - target: {fileID: 4879144822569629205, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
+      propertyPath: energyCost
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9141574936557285713, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
       propertyPath: m_RootOrder
@@ -313,20 +305,3 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1488108570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9141574936557285724, guid: 397e74cabdc136346b5448bd3924cd4d, type: 3}
-  m_PrefabInstance: {fileID: 642878934}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1488108587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488108570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af491bff2ef3b041b9882805cc710cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

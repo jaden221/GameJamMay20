@@ -12,7 +12,6 @@ public class Attack : MonoBehaviour
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
-        dealDamage.Setup();
     }
 
     //if chain of different basic attacks then call those based on chain...

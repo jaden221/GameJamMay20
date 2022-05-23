@@ -21,7 +21,7 @@ public class DealDamage : MonoBehaviour
         damageReceiver.ReceiveDamage(damageData);
     }
 
-    public void Setup()
+    void Awake()
     {
         myCol = GetComponent<Collider2D>();
         myCol.enabled = false;
