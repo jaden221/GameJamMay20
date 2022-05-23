@@ -44,6 +44,42 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""90294ed0-5698-40c5-9b14-17afe137d6ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability1"",
+                    ""type"": ""Button"",
+                    ""id"": ""43ee1000-2139-482e-a6f6-96d2ecc819db"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability2"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b1c2ca4-631e-4c0b-a846-0cc360109b45"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1b07675-5c9f-40aa-8b46-bcbc27b82f6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +203,50 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7f119de-a816-4066-81c5-0287f215c830"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c708a4bc-7d4e-4972-b59b-9f1d78baf236"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""655b2d2b-bcd4-41a1-b2e7-d7862c374539"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49311cd5-c561-4225-afde-613f4c6bb88e"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +318,10 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_BasicAttack = m_Player.FindAction("BasicAttack", throwIfNotFound: true);
+        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
+        m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
+        m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
+        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -299,12 +383,20 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_BasicAttack;
+    private readonly InputAction m_Player_Block;
+    private readonly InputAction m_Player_Ability1;
+    private readonly InputAction m_Player_Ability2;
+    private readonly InputAction m_Player_Dodge;
     public struct PlayerActions
     {
         private @PlayerInputMap m_Wrapper;
         public PlayerActions(@PlayerInputMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @BasicAttack => m_Wrapper.m_Player_BasicAttack;
+        public InputAction @Block => m_Wrapper.m_Player_Block;
+        public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
+        public InputAction @Ability2 => m_Wrapper.m_Player_Ability2;
+        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -320,6 +412,18 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
                 @BasicAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
                 @BasicAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
                 @BasicAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
+                @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Ability1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Dodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @Dodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @Dodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,6 +434,18 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
                 @BasicAttack.started += instance.OnBasicAttack;
                 @BasicAttack.performed += instance.OnBasicAttack;
                 @BasicAttack.canceled += instance.OnBasicAttack;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
+                @Ability1.started += instance.OnAbility1;
+                @Ability1.performed += instance.OnAbility1;
+                @Ability1.canceled += instance.OnAbility1;
+                @Ability2.started += instance.OnAbility2;
+                @Ability2.performed += instance.OnAbility2;
+                @Ability2.canceled += instance.OnAbility2;
+                @Dodge.started += instance.OnDodge;
+                @Dodge.performed += instance.OnDodge;
+                @Dodge.canceled += instance.OnDodge;
             }
         }
     }
@@ -383,5 +499,9 @@ public partial class @PlayerInputMap : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnBasicAttack(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
+        void OnAbility1(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
     }
 }
