@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     #region Components
 
     Animator animator;
+    Energy energy;
+    RoarAbility roarAbility;
 
     #endregion
 
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        energy = GetComponent<Energy>();
+        roarAbility = GetComponent<RoarAbility>();
 
         input = new PlayerInputMap();
     }
@@ -79,7 +83,19 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(TransBools.BasicAttack.ToString(), basicAtk.IsPressed());
         animator.SetBool(TransBools.Dodge.ToString(), dodge.IsPressed());
         animator.SetBool(TransBools.Block.ToString(), block.IsPressed());
-        animator.SetBool(TransBools.Ability1.ToString(), ability1.IsPressed());
+        CanRoar();
         animator.SetBool(TransBools.Ability2.ToString(), ability2.IsPressed());
+    }
+
+    void CanRoar()
+    {
+        if (ability1.IsPressed() && energy.GetCurEnergy >= roarAbility.GetEnergyCost)
+        {
+            animator.SetBool(TransBools.Ability1.ToString(), true);
+        }
+        else
+        {
+            animator.SetBool(TransBools.Ability1.ToString(), false);
+        }
     }
 }

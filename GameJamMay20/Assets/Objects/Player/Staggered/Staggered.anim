@@ -108,6 +108,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.45833334
+    functionName: AEvent_EndStagger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.45833334
     functionName: AEvent_CanStagger
     data: 
     objectReferenceParameter: {fileID: 0}
