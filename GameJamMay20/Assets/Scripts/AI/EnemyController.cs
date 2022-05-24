@@ -6,12 +6,14 @@ public class EnemyController : MonoBehaviour
 {
 
     [SerializeField] float _attackDistance;
+    [SerializeField] float _moveSpeed = 2;
 
     Animator animator;
 
-    Transform _playerTrans;
+    PlayerController _player;
 
     bool _canBasicAttack = false;
+    float _distanceToPlayer;
 
     enum TransBools
     {
@@ -23,13 +25,21 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        _playerTrans = FindObjectOfType<PlayerController>().transform;
+        _player = FindObjectOfType<PlayerController>();
     }
 
     void Update()
     {
-        _canBasicAttack = Vector2.Distance(_playerTrans.position, transform.position) <= _attackDistance;
+        CheckPlayerDistance();
+        _canBasicAttack = _distanceToPlayer <= _attackDistance;
+
         
+        animator.SetBool(TransBools.Move.ToString(),!_canBasicAttack );
         animator.SetBool(TransBools.BasicAttack.ToString(), _canBasicAttack);    
+    }
+
+    private void CheckPlayerDistance()
+    {
+        _distanceToPlayer = Vector2.Distance(_player.transform.position, transform.position);
     }
 }
