@@ -5,15 +5,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    [SerializeField] float _attackDistance;
-    [SerializeField] float _moveSpeed = 2;
+    [SerializeField] float basicatkDist = 1;
+    float distToPlayer;
+
+    Transform player;
 
     Animator animator;
-
-    PlayerController _player;
-
-    bool _canBasicAttack = false;
-    float _distanceToPlayer;
 
     enum TransBools
     {
@@ -24,22 +21,21 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-
-        _player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>().transform;
     }
 
     void Update()
     {
+        // Observers
         CheckPlayerDistance();
-        _canBasicAttack = _distanceToPlayer <= _attackDistance;
 
-        
-        animator.SetBool(TransBools.Move.ToString(),!_canBasicAttack );
-        animator.SetBool(TransBools.BasicAttack.ToString(), _canBasicAttack);    
+        animator.SetBool(TransBools.Move.ToString(), distToPlayer > basicatkDist);
+        animator.SetBool(TransBools.BasicAttack.ToString(), distToPlayer <= basicatkDist);
+            
     }
 
-    private void CheckPlayerDistance()
+    void CheckPlayerDistance()
     {
-        _distanceToPlayer = Vector2.Distance(_player.transform.position, transform.position);
+        distToPlayer = Vector2.Distance(player.position, transform.position);
     }
 }
