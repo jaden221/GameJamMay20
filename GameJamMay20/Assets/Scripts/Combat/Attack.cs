@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
     [SerializeField] DamageDataSO damageData;
 
     [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] [Tooltip("Assign this attack's Collider")] DealDamage dealDamage;
 
     void Awake()
@@ -20,7 +21,8 @@ public class Attack : MonoBehaviour
     public void AEvent_StartAttack()
     {
         dealDamage.Enable(damageData.GetDamageStruct);
-
+        audioSource.clip = audioClip;
+        audioSource.Play();
         //Add the play audio functionality
     }
 

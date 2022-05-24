@@ -11,6 +11,7 @@ public class RoarAbility : MonoBehaviour
     [SerializeField] DamageDataSO damageData;
     [SerializeField] DealDamage dealDamage;
     [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioSource audioSource;
     Energy energy;
     void Awake()
     {
@@ -20,9 +21,11 @@ public class RoarAbility : MonoBehaviour
 
     public void AEvent_StartRoar()
     {
-        //play roar sound effect
         dealDamage.Enable(damageData.GetDamageStruct);
         energy.AddEnergy(-GetEnergyCost);
+
+        audioSource.clip = audioClip;
+        audioSource.Play();
     }
 
     public void AEvent_EndRoar()
