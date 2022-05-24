@@ -4,14 +4,10 @@ public class FacePlayer : MonoBehaviour
 {
     bool facePlayer = true;
 
-    SpriteRenderer sprite;
     Transform player;
 
-	// if player is to the right then flip sprite if not then don't flip sprite
-    //AEvent to turn this on and off*
     void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -21,11 +17,21 @@ public class FacePlayer : MonoBehaviour
 
         if (player.position.x > transform.position.x)
         {
-            sprite.flipX = false;
+            transform.localScale = new Vector2(1, 1);
         }
         else
         {
-            sprite.flipX = true;
+            transform.localScale = new Vector2(-1, 1);
         }
+    }
+
+    public void AEvent_StartFacePlayer()
+    {
+        facePlayer = true;
+    }
+
+    public void AEvent_StopFacePlayer()
+    {
+        facePlayer = false;
     }
 }

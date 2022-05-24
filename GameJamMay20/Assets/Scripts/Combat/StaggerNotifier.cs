@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Stagger : MonoBehaviour
+public class StaggerNotifier : MonoBehaviour
 {
     [SerializeField] UnityEvent OnStagger;
 

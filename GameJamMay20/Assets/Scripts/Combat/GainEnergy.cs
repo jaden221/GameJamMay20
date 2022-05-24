@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(DealtDamageNotifier))]
 [RequireComponent(typeof(Energy))]
-public class GainEnergyOnHit : MonoBehaviour
+public class GainEnergy : MonoBehaviour
 {
     [SerializeField] float energyPerHit = 10;
 
@@ -28,5 +28,11 @@ public class GainEnergyOnHit : MonoBehaviour
     public void HandleOnDealtDamage()
     {
         energy.AddEnergy(energyPerHit);
+    }
+
+    public void HandleReceiveDamage(DamageDataReceived data)
+    {
+        Debug.Log(data.dmgdata.energyDamage);
+        energy.AddEnergy(data.dmgdata.energyDamage);
     }
 }
