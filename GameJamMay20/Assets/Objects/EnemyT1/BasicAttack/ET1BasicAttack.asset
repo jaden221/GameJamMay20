@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ET1BasicAttack
   m_EditorClassIdentifier: 
   dmgStruct:
-    physDamage: 0
+    physDamage: 15
     fireDamage: 0
     magicDamage: 0
-    energyDamage: 0
+    energyDamage: 10
     stagger: 0

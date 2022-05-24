@@ -20,6 +20,8 @@ public class Attack : MonoBehaviour
     public void AEvent_StartAttack()
     {
         dealDamage.Enable(damageData.GetDamageStruct);
+
+        //Add the play audio functionality
     }
 
     public void AEvent_EndAttack()
