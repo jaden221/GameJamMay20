@@ -1,8 +1,8 @@
 version: 2
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
-- Assets/Objects/Player/BasicAtk/Primary.tpsheet
-- Assets/Objects/Player/Block/Block Full.tpsheet
+- Assets/Objects/Player/BasicAtk/Basic Attack.tpsheet
+- Assets/Objects/Player/Block/Block.tpsheet
 - Assets/Objects/Player/Block/Blocking.tpsheet
 - Assets/Objects/Player/Dodge/Dodge.tpsheet
 - Assets/Objects/Player/Idle/Idle.tpsheet
@@ -11,8 +11,8 @@ tpsheetFileNames:
 - Assets/Objects/Player/Staggered/Staggered.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
-- Assets/Objects/Player/BasicAtk/Primary.png
-- Assets/Objects/Player/Block/Block Full.png
+- Assets/Objects/Player/BasicAtk/Basic Attack.png
+- Assets/Objects/Player/Block/Block.png
 - Assets/Objects/Player/Block/Blocking.png
 - Assets/Objects/Player/Dodge/Dodge.png
 - Assets/Objects/Player/Idle/Idle.png

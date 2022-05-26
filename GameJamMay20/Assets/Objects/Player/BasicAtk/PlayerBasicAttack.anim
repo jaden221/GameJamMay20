@@ -20,21 +20,29 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1941485895, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -1382362925, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.041666668
-      value: {fileID: -1185666544, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: 536978607, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.083333336
-      value: {fileID: 1297193188, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -19442563, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.125
-      value: {fileID: 1779835541, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -1732539085, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.16666667
-      value: {fileID: -307328919, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -714498382, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.20833333
-      value: {fileID: 1356346303, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: 1780463444, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.25
-      value: {fileID: -302635785, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -1602680742, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     - time: 0.29166666
-      value: {fileID: 89991237, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+      value: {fileID: -655410103, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - time: 0.33333334
+      value: {fileID: -944123169, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - time: 0.375
+      value: {fileID: 217173326, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - time: 0.41666666
+      value: {fileID: -58113137, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - time: 0.45833334
+      value: {fileID: 1649255469, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -55,20 +63,24 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 1941485895, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: -1185666544, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: 1297193188, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: 1779835541, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: -307328919, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: 1356346303, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: -302635785, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
-    - {fileID: 89991237, guid: 43b17b64448e1404881bc5db99e7930b, type: 3}
+    - {fileID: -1382362925, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: 536978607, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -19442563, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -1732539085, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -714498382, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: 1780463444, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -1602680742, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -655410103, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -944123169, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: 217173326, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: -58113137, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
+    - {fileID: 1649255469, guid: 8989c6cd390decc49a4f1149578b88fa, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3333333
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -95,7 +107,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.29166666
+  - time: 0.375
     functionName: AEvent_EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}

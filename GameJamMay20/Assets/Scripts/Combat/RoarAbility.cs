@@ -11,12 +11,14 @@ public class RoarAbility : MonoBehaviour
     [SerializeField] DamageDataSO damageData;
     [SerializeField] DealDamage dealDamage;
     [SerializeField] AudioClip audioClip;
-    [SerializeField] AudioSource audioSource;
+
+    AudioSource audioSource;
     Energy energy;
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
         energy = GetComponent<Energy>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void AEvent_StartRoar()

@@ -32,7 +32,6 @@ public class GainEnergy : MonoBehaviour
 
     public void HandleReceiveDamage(DamageDataReceived data)
     {
-        Debug.Log(data.dmgdata.energyDamage);
         energy.AddEnergy(data.dmgdata.energyDamage);
     }
 }
