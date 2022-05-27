@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class LevelHandeler : MonoBehaviour
 {
-    //You actually don't have to public or serialize or mess with these. So that's cool.
     int enemyCounter;
     ZoneLoader activeZone;
     bool zoneReady = true;
 
-    //functions to add and remove enemies
     public void AddEnemy()
     {
         enemyCounter++;

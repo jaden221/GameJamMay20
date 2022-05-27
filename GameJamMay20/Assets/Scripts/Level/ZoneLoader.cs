@@ -15,16 +15,14 @@ public class ZoneLoader : MonoBehaviour
     //Since there isnt a gate opening animation right now these gates will just get disabled.
     [SerializeField] GameObject[] gates;
     //Set an empty at the location you want the player to start in the new zone in here.
-    [SerializeField] GameObject playerStartPoint;
+    [SerializeField] Transform playerStartPoint;
 
-    PlayerController player;
+    Transform player;
     LevelHandeler levelHandeler;
 
-    //Find the leveelHandeler so it can... handle things.
-    //Also find the player.
     public void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>().transform;
         levelHandeler = FindObjectOfType<LevelHandeler>();
     }
 
@@ -38,15 +36,15 @@ public class ZoneLoader : MonoBehaviour
     Also to be safe we are going to disable Opening gates until we do all this so the enemy counter doesnt intantly say
     "hey we hadnt spawned any enemies yet lets just open gates now"
     */
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if(collision.otherCollider.GetComponent<PlayerController>())
+        if(collision.transform.root.GetComponent<PlayerController>()) 
         {
             levelHandeler.SetActiveZone(this);
             levelHandeler.IsZoneReady(false);
-            Camera.main.transform.position = newCameraPos;
-            player.transform.position = playerStartPoint.transform.position;
+            Camera.main.transform.position = newCameraPos; //Need to smooth camera over, this will jerk the camera over instantly
+            player.position = playerStartPoint.position; //Smooth the player over as well... can call move on the player
             for (int i = 0; i < enemySpawners.Length; i++)
             {
                 EnemySpawner spawner = enemySpawners[i];
@@ -57,7 +55,6 @@ public class ZoneLoader : MonoBehaviour
         }
     }
 
-    //I bet you can't guess what this one does.
     internal void OpenGates()
     {
         for (int i = 0; i < gates.Length; i++)
