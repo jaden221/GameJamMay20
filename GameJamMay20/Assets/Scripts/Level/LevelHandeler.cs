@@ -36,6 +36,6 @@ public class LevelHandeler : MonoBehaviour
     //removes barriers when all enemies are dead
     private void Update()
     {
-        if(enemyCounter <= 0 && zoneReady) { activeZone.OpenGates(); }
+        if(activeZone != null && enemyCounter <= 0 && zoneReady) { activeZone.OpenGates(); }
     }
 }
