@@ -13,18 +13,18 @@ public class PlayerFlipSprite : StateMachineBehaviour
     {
         if (sprite == null) sprite = animator.GetComponent<SpriteRenderer>();
 
-        if (move.ReadValue<Vector2>().x < 0)
-        {
-            sprite.flipX = true;
-        }
-        else
-        {
-            sprite.flipX = false;
-        }
+        FlipSprite();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        FlipSprite();
+    }
+
+    void FlipSprite()
+    {
+        if (move.ReadValue<Vector2>().x == 0) return;
+
         if (move.ReadValue<Vector2>().x < 0)
         {
             sprite.flipX = true;

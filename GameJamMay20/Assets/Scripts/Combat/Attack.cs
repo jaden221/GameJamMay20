@@ -6,13 +6,16 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] DamageDataSO damageData;
 
-    [SerializeField] AudioClip audioClip;
-    [SerializeField] AudioSource audioSource;
     [SerializeField] [Tooltip("Assign this attack's Collider")] DealDamage dealDamage;
+
+    [SerializeField] AudioClip audioClip;
+
+    AudioSource audioSource;
 
     void Awake()
     {
         if (dealDamage == null) Debug.Log($"DealDamage is null on {transform.name}");
+        audioSource = GetComponent<AudioSource>();
     }
 
     //if chain of different basic attacks then call those based on chain...
