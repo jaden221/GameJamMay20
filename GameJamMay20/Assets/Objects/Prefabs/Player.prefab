@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7269302990642933720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9071510958530328673}
+  - component: {fileID: 6828223709127787534}
+  m_Layer: 6
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9071510958530328673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269302990642933720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9141574935424446265}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6828223709127787534
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269302990642933720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0031644106, y: 0.4594149}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.55065227, y: 0.46319568}
+  m_EdgeRadius: 0
 --- !u!1 &8808981706250287687
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +218,7 @@ Transform:
   - {fileID: 9141574934517564848}
   - {fileID: 9141574936413037835}
   - {fileID: 7750873049402024129}
+  - {fileID: 9071510958530328673}
   m_Father: {fileID: 9141574936557285713}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -285,7 +344,7 @@ Transform:
   m_Children:
   - {fileID: 9141574935424446265}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &-3634666937017378724
 AudioSource:
@@ -705,9 +764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageData: {fileID: 11400000, guid: 3552b87e58b9ec748aa2a8c943873f69, type: 2}
-  audioClip: {fileID: 0}
-  audioSource: {fileID: 0}
   dealDamage: {fileID: 9141574936413037941}
+  audioClip: {fileID: 0}
 --- !u!114 &9141574936557285717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,8 +796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyMult: 1.3
   damageResistance: 0.3
-  audioClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!114 &9141574936557285738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,7 +876,6 @@ MonoBehaviour:
   damageData: {fileID: 11400000, guid: 5cf8cab304d6b234fa95862dfe0d67ad, type: 2}
   dealDamage: {fileID: 4058876303701868061}
   audioClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!114 &71584698750670518
 MonoBehaviour:
   m_ObjectHideFlags: 0

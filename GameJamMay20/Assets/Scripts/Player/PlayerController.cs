@@ -98,4 +98,14 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(TransBools.Ability1.ToString(), false);
         }
     }
+
+    public void DisableMove()
+    {
+        move.Disable();
+    }
+
+    public void EnableMove()
+    {
+        move.Enable();
+    }
 }

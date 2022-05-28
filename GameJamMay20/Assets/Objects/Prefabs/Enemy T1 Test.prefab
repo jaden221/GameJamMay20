@@ -340,7 +340,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 650627455, guid: df43ee0169371784392a589dd07b02ff, type: 3}
   m_Color: {r: 1, g: 0.3622641, b: 0.3622641, a: 1}
   m_FlipX: 0
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_Size: {x: 9, y: 9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4349829429831439025
@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageData: {fileID: 11400000, guid: 301b666803c40e74ab11cc6e13a6f0e7, type: 2}
-  audioClip: {fileID: 0}
   dealDamage: {fileID: 4349829429707114132}
+  audioClip: {fileID: 0}
 --- !u!114 &4349829429831439028
 MonoBehaviour:
   m_ObjectHideFlags: 0

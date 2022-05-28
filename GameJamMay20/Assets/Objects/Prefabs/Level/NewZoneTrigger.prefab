@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8110762928486577024}
   - component: {fileID: 7576439169276629020}
   - component: {fileID: -3594181173117317618}
+  - component: {fileID: 6368649428468789300}
   m_Layer: 0
   m_Name: NewZoneTrigger
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7576439169276629020
 MonoBehaviour:
@@ -48,6 +49,7 @@ MonoBehaviour:
   newCameraPos: {x: 0, y: 0}
   enemySpawners: []
   gates: []
+  playerStartPoint: {fileID: 0}
 --- !u!61 &-3594181173117317618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74,3 +76,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &6368649428468789300
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124494867052363390}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
