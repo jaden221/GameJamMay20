@@ -1,6 +1,10 @@
 version: 2
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Objects/EnemyT1/BasicAttack/Basic Attack.tpsheet
+- Assets/Objects/EnemyT1/Death/Death.tpsheet
+- Assets/Objects/EnemyT1/MoveFor/MoveFor.tpsheet
+- Assets/Objects/EnemyT1/Staggered/Staggered.tpsheet
 - Assets/Objects/Player/BasicAtk/Basic Attack.tpsheet
 - Assets/Objects/Player/Block/Block.tpsheet
 - Assets/Objects/Player/Block/Blocking.tpsheet
@@ -9,8 +13,16 @@ tpsheetFileNames:
 - Assets/Objects/Player/MoveFor/MoveFor.tpsheet
 - Assets/Objects/Player/Roar/Roar.tpsheet
 - Assets/Objects/Player/Staggered/Staggered.tpsheet
+- Assets/Objects/Shield Enemy/Basic Attack/Basic Attack.tpsheet
+- Assets/Objects/Shield Enemy/Death/Death.tpsheet
+- Assets/Objects/Shield Enemy/MoveFor/MoveFor.tpsheet
+- Assets/Objects/Shield Enemy/Staggered/Staggered.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Objects/EnemyT1/BasicAttack/Basic Attack.png
+- Assets/Objects/EnemyT1/Death/Death.png
+- Assets/Objects/EnemyT1/MoveFor/MoveFor.png
+- Assets/Objects/EnemyT1/Staggered/Staggered.png
 - Assets/Objects/Player/BasicAtk/Basic Attack.png
 - Assets/Objects/Player/Block/Block.png
 - Assets/Objects/Player/Block/Blocking.png
@@ -19,8 +31,20 @@ textureFileNames:
 - Assets/Objects/Player/MoveFor/MoveFor.png
 - Assets/Objects/Player/Roar/Roar.png
 - Assets/Objects/Player/Staggered/Staggered.png
+- Assets/Objects/Shield Enemy/Basic Attack/Basic Attack.png
+- Assets/Objects/Shield Enemy/Death/Death.png
+- Assets/Objects/Shield Enemy/MoveFor/MoveFor.png
+- Assets/Objects/Shield Enemy/Staggered/Staggered.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

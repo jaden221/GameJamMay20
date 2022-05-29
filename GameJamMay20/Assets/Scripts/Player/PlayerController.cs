@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Energy energy;
     RoarAbility roarAbility;
+    Health health;
 
     #endregion
 

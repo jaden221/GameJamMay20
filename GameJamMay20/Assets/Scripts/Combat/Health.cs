@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] float curHealth;
 
     public event Action OnDeath;
+    Animator animator;
 
     #region Getters
 
@@ -29,7 +30,11 @@ public class Health : MonoBehaviour
     {
         if (maxHealth <= 0) Debug.Log($"maxHealth is set to 0 on {transform.name}");
 
+        animator = GetComponent<Animator>();
+
         curHealth = maxHealth;
+
+        OnDeath += HandleOnDeath;
     }
 
     public void HandleDamagedReceived(DamageDataReceived damagedata) //Switch param to be of type DamageType
@@ -52,5 +57,10 @@ public class Health : MonoBehaviour
     public void AnEvent_Destroy()
     {
         Destroy(gameObject);
+    }
+
+    void HandleOnDeath()
+    {
+        animator.SetBool("Death", true);
     }
 }
