@@ -12,7 +12,7 @@ public class ZoneLoader : MonoBehaviour
     [Tooltip("Place the gate objects in here")]
     [SerializeField] GameObject[] gates;
     [Tooltip("Place Images of what the open gates will look like in the same order the gates are in")]
-    [SerializeField] Sprite[] openGates;
+    [SerializeField] List<Sprite> openGates;
     [Tooltip("Set an empty at the location you want the player to start in the new zone in here.")]
     [SerializeField] Transform playerStartPoint;
     [SerializeField] float cameraTransitionSpeed = 2f;
@@ -62,18 +62,20 @@ public class ZoneLoader : MonoBehaviour
         for (int i = 0; i < gates.Length; i++)
         {
             GameObject gate = gates[i];
-            if (openGates != null)
+            if (openGates.Count == 0)
+            {
+                gate.SetActive(false);
+            }
+            if(openGates.Count != 0)
             {
                 Sprite openGate = openGates[i];
                 gate.GetComponent<SpriteRenderer>().sprite = openGate;
                 gate.GetComponent<BoxCollider2D>().enabled = false;
             }
-            else
-            {
-                gate.SetActive(false);
-            }
         }
     }
+
+    
 
     IEnumerator LerpPosition(GameObject objectToMove, Vector3 targetPosition, float duration)
     {
