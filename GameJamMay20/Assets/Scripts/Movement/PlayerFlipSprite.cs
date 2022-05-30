@@ -8,10 +8,12 @@ public class PlayerFlipSprite : StateMachineBehaviour
     PlayerInputMap input;
     InputAction move;
     SpriteRenderer sprite;
+    BoxCollider2D attackCollider;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (sprite == null) sprite = animator.GetComponent<SpriteRenderer>();
+        if (attackCollider == null) attackCollider = GameObject.Find("Attack").GetComponent<BoxCollider2D>();
 
         FlipSprite();
     }
@@ -28,10 +30,16 @@ public class PlayerFlipSprite : StateMachineBehaviour
         if (move.ReadValue<Vector2>().x < 0)
         {
             sprite.flipX = true;
+            
+            attackCollider.offset.Set(attackCollider.offset.x * -1, attackCollider.offset.y);
+            
         }
         else
         {
             sprite.flipX = false;
+            
+            attackCollider.offset.Set(attackCollider.offset.x * -1, attackCollider.offset.y);
+            
         }
     }
 
