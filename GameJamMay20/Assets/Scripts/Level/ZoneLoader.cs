@@ -15,16 +15,11 @@ public class ZoneLoader : MonoBehaviour
     [SerializeField] Sprite[] openGates;
     [Tooltip("Set an empty at the location you want the player to start in the new zone in here.")]
     [SerializeField] Transform playerStartPoint;
-    [SerializeField] float cameraTransitionSpeed = .01f;
-    [SerializeField] float playerTransitionSpeed = .01f;
+    [SerializeField] float cameraTransitionSpeed = 2f;
+    [SerializeField] float playerTransitionSpeed = 2f;
 
     GameObject player;
     LevelHandeler levelHandeler;
-
-    bool isZoneReady = true;
-    Vector3 cameraOGPos;
-    Vector3 playerOGPos;
-    Vector3 velocity = Vector3.zero;
     
 
     public void Start()
@@ -33,14 +28,7 @@ public class ZoneLoader : MonoBehaviour
         levelHandeler = FindObjectOfType<LevelHandeler>();
     }
 
-    private void Update()
-    {
-        if (isZoneReady == false)
-        {
-            Transition();
-        }
-
-    }
+    
 
     /*This one does a lot of stuff so buckle up
     when the player hits this trigger to enter next zone we are going to set ourselves as the active zone.
@@ -58,9 +46,7 @@ public class ZoneLoader : MonoBehaviour
         {
             levelHandeler.SetActiveZone(this);
             levelHandeler.IsZoneReady(false);
-            isZoneReady = false;
-            cameraOGPos = Camera.main.transform.position;
-            playerOGPos = player.transform.position;
+            Transition();
             for (int i = 0; i < enemySpawners.Length; i++)
             {
                 EnemySpawner spawner = enemySpawners[i];
@@ -89,18 +75,24 @@ public class ZoneLoader : MonoBehaviour
         }
     }
 
+    IEnumerator LerpPosition(GameObject objectToMove, Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = objectToMove.transform.position;
+        while (time < duration)
+        {
+            objectToMove.transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        objectToMove.transform.position = targetPosition;
+    }
+
     private void Transition()
     {
         player.GetComponent<PlayerController>().DisableMove();
-        Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, newCameraPos,  ref velocity, cameraTransitionSpeed * Time.deltaTime);
-        player.transform.position = Vector3.SmoothDamp(player.transform.position, playerStartPoint.position, ref velocity, playerTransitionSpeed * Time.deltaTime);
-        if(Vector3.Distance(Camera.main.transform.position, newCameraPos) <= 0.1f && Vector3.Distance(player.transform.position, playerStartPoint.position) <= 0.1f)
-        {
-            Camera.main.transform.position = newCameraPos;
-            player.transform.position = playerStartPoint.position;
-            player.GetComponent<PlayerController>().EnableMove();
-            isZoneReady = true;
-        }
-        
+        StartCoroutine(LerpPosition(Camera.main.gameObject, newCameraPos, cameraTransitionSpeed));
+        StartCoroutine(LerpPosition(player, playerStartPoint.position, playerTransitionSpeed));
+        player.GetComponent<PlayerController>().EnableMove();
     }
 }
