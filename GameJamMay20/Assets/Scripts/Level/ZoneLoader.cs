@@ -42,6 +42,7 @@ public class ZoneLoader : MonoBehaviour
     */
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log("I was called");
         if(collider.transform.root.GetComponent<PlayerController>()) 
         {
             levelHandeler.SetActiveZone(this);

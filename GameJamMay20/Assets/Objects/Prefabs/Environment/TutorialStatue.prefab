@@ -124,7 +124,7 @@ Transform:
   - {fileID: 4393510381308941968}
   - {fileID: 4393510381080247850}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4393510379320589396
 SpriteRenderer:
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcf3c73ba7ebf04793c2d8a10a3ded5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 4393510381308941969}
 --- !u!1 &4393510379714536581
 GameObject:
   m_ObjectHideFlags: 0

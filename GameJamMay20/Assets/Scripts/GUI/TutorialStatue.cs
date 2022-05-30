@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class TutorialStatue : MonoBehaviour
 {
-    Canvas canvas;
-    private void Start()
-    {
-        canvas = GetComponentInChildren<Canvas>();
-    }
+    [SerializeField]GameObject canvas;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform.root.GetComponent<PlayerController>())
         {
-            canvas.gameObject.SetActive(true);
+            canvas.SetActive(true);
         }
     }
 
@@ -21,7 +18,7 @@ public class TutorialStatue : MonoBehaviour
     {
         if(collider.transform.root.GetComponent<PlayerController>())
         {
-            canvas.gameObject.SetActive(false);
+            canvas.SetActive(false);
         }
     }
 }
