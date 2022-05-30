@@ -23,7 +23,8 @@ public class ZoneLoader : MonoBehaviour
 
     bool isZoneReady = true;
     Vector3 cameraOGPos;
-    Vector2 playerOGPos;
+    Vector3 playerOGPos;
+    Vector3 velocity = Vector3.zero;
     
 
     public void Start()
@@ -58,6 +59,8 @@ public class ZoneLoader : MonoBehaviour
             levelHandeler.SetActiveZone(this);
             levelHandeler.IsZoneReady(false);
             isZoneReady = false;
+            cameraOGPos = Camera.main.transform.position;
+            playerOGPos = player.transform.position;
             for (int i = 0; i < enemySpawners.Length; i++)
             {
                 EnemySpawner spawner = enemySpawners[i];
@@ -89,11 +92,9 @@ public class ZoneLoader : MonoBehaviour
     private void Transition()
     {
         player.GetComponent<PlayerController>().DisableMove();
-        cameraOGPos = Camera.main.transform.position;
-        playerOGPos = player.transform.position;
-        Camera.main.transform.position = Vector3.Lerp(cameraOGPos, newCameraPos,  cameraTransitionSpeed);
-        player.transform.position = Vector3.Lerp(playerOGPos, playerStartPoint.position, playerTransitionSpeed);
-        if(Vector3.Distance(Camera.main.transform.position, newCameraPos) == 0f && Vector2.Distance(player.transform.position, playerStartPoint.position) == 0f)
+        Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, newCameraPos,  ref velocity, cameraTransitionSpeed * Time.deltaTime);
+        player.transform.position = Vector3.SmoothDamp(player.transform.position, playerStartPoint.position, ref velocity, playerTransitionSpeed * Time.deltaTime);
+        if(Vector3.Distance(Camera.main.transform.position, newCameraPos) <= 0.1f && Vector3.Distance(player.transform.position, playerStartPoint.position) <= 0.1f)
         {
             Camera.main.transform.position = newCameraPos;
             player.transform.position = playerStartPoint.position;
